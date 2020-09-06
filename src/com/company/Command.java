@@ -7,7 +7,7 @@ public interface Command {
      *
      * @param flags
      * @param args Аргументы команды и флаги
-     * @return Ответ команды либо сообщение об ошибке в команде
+     * @return Код ошибки, 0 если ошибки нет
      */
-    public String[] execute(String[] flags, String[] args);
+    public int execute(String[] flags, String[] args);
 }

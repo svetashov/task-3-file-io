@@ -5,9 +5,8 @@ import java.util.Arrays;
 
 public class CommandHandler {
 
-    public static String[] handle(String[] args) {
+    public static int handle(String[] args) {
 
-        String[] answer;
         if (args.length == 0)
             throw new IllegalArgumentException("Command not found.");
         else {
@@ -16,15 +15,17 @@ public class CommandHandler {
                 case "ls":
                     command = new CommandLs();
                     break;
+                case "mkdir":
+                    command = new CommandMkdir();
+                    break;
                 default:
                     throw new IllegalArgumentException("\"" + args[0] + "\" not a command.");
             }
 
             args = Arrays.copyOfRange(args, 1, args.length);
-            answer = command.execute(getFlags(args), getArguments(args));
+            return command.execute(getFlags(args), getArguments(args));
         }
 
-        return answer;
     }
 
     public static String[] getArguments(String[] in) {
