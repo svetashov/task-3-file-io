@@ -18,6 +18,9 @@ public class CommandHandler {
                 case "mkdir":
                     command = new CommandMkdir();
                     break;
+                case "echo":
+                    command = new CommandEcho();
+                    break;
                 default:
                     throw new IllegalArgumentException("\"" + args[0] + "\" not a command.");
             }
